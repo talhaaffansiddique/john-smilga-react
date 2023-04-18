@@ -11,8 +11,10 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(url);
-      const tours = await response.jsaon();
+      const tours = await response.json();
+
       setLoading(false);
+      setTours(tours);
     } catch (error) {
       setLoading(false);
       console.log(error);
