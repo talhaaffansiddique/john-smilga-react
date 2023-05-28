@@ -1,11 +1,41 @@
-import React, { useState } from 'react';
-import data from './data';
+import React, { useState } from "react";
+import data from "./data";
 function App() {
-  
-  
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-  <h2>lorem ipsum project setup</h2>
-    )
+    <section className="section-center">
+      <h3>tired of boring lorem ipsum?</h3>
+      <form className="lorem-form" onSubmit={handleSubmit}>
+        <label htmlFor="amount"> paragraph</label>
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          value={count}
+          onChange={(e) => setCount(e.target.value)}
+        />
+        <button type="submit" className="btn">
+          generate
+        </button>
+      </form>
+      <article className="lorem-text">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis a
+          dolorem esse praesentium, qui tempore modi assumenda omnis ut at?
+          Facere quaerat iure labore itaque et, consectetur optio tempora
+          tempore!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, rem.
+        </p>
+      </article>
+    </section>
+  );
 }
 
 export default App;
