@@ -5,7 +5,7 @@ import Alert from "./Alert";
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
   if (list) {
-    return JSON.parse(localStorage.getItem("list"));
+    return (list = JSON.parse(localStorage.getItem("list")));
   } else {
     return [];
   }
@@ -58,6 +58,7 @@ function App() {
 
   const clearList = () => {
     showAlert(true, "danger", "empty list");
+    setList([]);
   };
 
   const removeItem = (id) => {
