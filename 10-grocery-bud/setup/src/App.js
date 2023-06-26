@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Alert from "./Alert";
-
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
   if (list) {
@@ -10,7 +9,6 @@ const getLocalStorage = () => {
     return [];
   }
 };
-
 function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState(getLocalStorage());
@@ -21,12 +19,9 @@ function App() {
     msg: "",
     type: "",
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
-      //display alert
-
       showAlert(true, "danger", "please enter value");
     } else if (name && isEditing) {
       setList(
@@ -34,7 +29,6 @@ function App() {
           if (item.id === editID) {
             return { ...item, title: name };
           }
-
           return item;
         })
       );
@@ -43,7 +37,6 @@ function App() {
       setIsEditing(false);
       showAlert(true, "sucess", "value changed");
     } else {
-      // show alert
       showAlert(true, "success", "item added to the List");
       const newItem = { id: new Date().getTime().toString(), title: name };
       setList([...list, newItem]);
@@ -53,7 +46,6 @@ function App() {
 
   const showAlert = (show = false, type = "", msg = "") => {
     setAlert({ show, type, msg });
-    setList([]);
   };
 
   const clearList = () => {
