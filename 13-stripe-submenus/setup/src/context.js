@@ -38,6 +38,6 @@ export const AppProvider = ({ children }) => {
   );
 };
 
-export const useGlocalContext = () => {
+export const useGlobalContext = () => {
   return useContext(AppContext);
 };
